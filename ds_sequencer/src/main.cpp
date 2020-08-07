@@ -1,16 +1,16 @@
 
 #include <bx/uint32_t.h>
-#include "../deps/bgfx.cmake/bgfx/examples/common/common.h"
-#include "../deps/bgfx.cmake/bgfx/examples/common/bgfx_utils.h"
-#include "../deps/bgfx.cmake/bgfx/examples/common/imgui/imgui.h"
-#define ENTRY_CONFIG_IMPLEMENT_MAIN 1
+#include "common.h"
+#include "bgfx_utils.h"
+#include "imgui/imgui.h"
+
 namespace
 {
 
-class ExampleHelloWorld : public entry::AppI
+class DSSequencer : public entry::AppI
 {
 public:
-	ExampleHelloWorld(const char* _name, const char* _description, const char* _url)
+	DSSequencer(const char* _name, const char* _description, const char* _url)
 		: entry::AppI(_name, _description, _url)
 	{
 	}
@@ -118,8 +118,8 @@ public:
 } // namespace
 
 ENTRY_IMPLEMENT_MAIN(
-	  ExampleHelloWorld
-	, "00-helloworld"
-	, "Initialization and debug text."
-	, "https://bkaradzic.github.io/bgfx/examples.html#helloworld"
+	  DSSequencer
+	, "ds_sequencer"
+	, ""
+	, ""
 	);
