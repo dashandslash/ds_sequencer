@@ -7,9 +7,26 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set( BGFX_BUILD_EXAMPLES  OFF CACHE INTERNAL "" )
 
-set(CMAKE_TARGET_DEFINITIONS_CXX
-  "ENTRY_CONFIG_IMPLEMENT_MAIN=1"
-  )
+
+
+# set(CMAKE_TARGET_DEFINITIONS_CXX
+# "ENTRY_CONFIG_IMPLEMENT_MAIN=1"
+#  )
+
+  
+file(GLOB IMGUI_SOURCE_FILES
+  ${CMAKE_CURRENT_SOURCE_DIR}/deps/imgui/*.h
+  ${CMAKE_CURRENT_SOURCE_DIR}/deps/imgui/*.cpp
+)
+
+file(COPY ${IMGUI_SOURCE_FILES} DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/deps/bgfx.cmake/bgfx/3rdparty/dear-imgui)
+
+file(GLOB IMGUIZMO_SOURCE_FILES
+  ${CMAKE_CURRENT_SOURCE_DIR}/deps/ImGuizmo/*.h
+  ${CMAKE_CURRENT_SOURCE_DIR}/deps/ImGuizmo/*.cpp
+)
+
+file(COPY ${IMGUIZMO_SOURCE_FILES} DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/deps/bgfx.cmake/bgfx/3rdparty/dear-imgui)
 
 # include_directories("deps/imgui/")
 include_directories("deps/bgfx.cmake/bgfx/3rdparty")
