@@ -15,18 +15,21 @@ set( BGFX_BUILD_EXAMPLES  OFF CACHE INTERNAL "" )
 
   
 file(GLOB IMGUI_SOURCE_FILES
-  ${CMAKE_CURRENT_SOURCE_DIR}/deps/imgui/*.h
-  ${CMAKE_CURRENT_SOURCE_DIR}/deps/imgui/*.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/deps/imgui/imgui.h
+  ${CMAKE_CURRENT_SOURCE_DIR}/deps/imgui/imgui.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/deps/imgui/imgui_internal.h
+  ${CMAKE_CURRENT_SOURCE_DIR}/deps/imgui/imgui_widgets.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/deps/imgui/imgui_draw.cpp
 )
 
 file(COPY ${IMGUI_SOURCE_FILES} DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/deps/bgfx.cmake/bgfx/3rdparty/dear-imgui)
 
 file(GLOB IMGUIZMO_SOURCE_FILES
-  ${CMAKE_CURRENT_SOURCE_DIR}/deps/ImGuizmo/*.h
-  ${CMAKE_CURRENT_SOURCE_DIR}/deps/ImGuizmo/*.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/deps/ImGuizmo/ImSequencer.h
+  ${CMAKE_CURRENT_SOURCE_DIR}/deps/ImGuizmo/ImSequencer.cpp
 )
 
-file(COPY ${IMGUIZMO_SOURCE_FILES} DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/deps/bgfx.cmake/bgfx/3rdparty/dear-imgui)
+file(COPY ${IMGUIZMO_SOURCE_FILES} DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/deps/bgfx.cmake/bgfx/3rdparty/dear-imgui/widgets/)
 
 # include_directories("deps/imgui/")
 include_directories("deps/bgfx.cmake/bgfx/3rdparty")
@@ -52,6 +55,7 @@ target_link_libraries(${PROJECT_NAME}
 target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_PREFIX_PATH}/include")
 
 add_subdirectory(deps/bgfx.cmake)
+add_subdirectory(ui)
 
 # include(deps/bgfx.cmake/cmake/util/ConfigureDebugging.cmake)
 # include(deps/bgfx.cmake/cmake/examples.cmake)
