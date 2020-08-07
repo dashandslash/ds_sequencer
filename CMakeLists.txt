@@ -7,13 +7,6 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set( BGFX_BUILD_EXAMPLES  OFF CACHE INTERNAL "" )
 
-
-
-# set(CMAKE_TARGET_DEFINITIONS_CXX
-# "ENTRY_CONFIG_IMPLEMENT_MAIN=1"
-#  )
-
-  
 file(GLOB IMGUI_SOURCE_FILES
   ${CMAKE_CURRENT_SOURCE_DIR}/deps/imgui/imgui.h
   ${CMAKE_CURRENT_SOURCE_DIR}/deps/imgui/imgui.cpp
@@ -31,38 +24,9 @@ file(GLOB IMGUIZMO_SOURCE_FILES
 
 file(COPY ${IMGUIZMO_SOURCE_FILES} DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/deps/bgfx.cmake/bgfx/3rdparty/dear-imgui/widgets/)
 
-# include_directories("deps/imgui/")
 include_directories("deps/bgfx.cmake/bgfx/3rdparty")
 
-set(SOURCES
-    ds_sequencer/src/main.cpp
-    )
-
-set(HEADERS 
-    )
-
-add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
-
-add_dependencies(ds_sequencer example-common)
-
-target_link_libraries(${PROJECT_NAME}
-                      PUBLIC
-                      bgfx
-                      example-common
-                      )
-
-# message("include dir ${CMAKE_PREFIX_PATH}/include" )
-target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_PREFIX_PATH}/include")
-
 add_subdirectory(deps/bgfx.cmake)
+add_subdirectory(ds_sequencer)
+add_subdirectory(renderer)
 add_subdirectory(ui)
-
-# include(deps/bgfx.cmake/cmake/util/ConfigureDebugging.cmake)
-# include(deps/bgfx.cmake/cmake/examples.cmake)
-# include(deps/bgfx.cmake/cmake/util/ConfigureDebugging.cmake)
-# include(deps/bgfx.cmake/cmake/3rdparty/meshoptimizer.cmake)
-# include_directories(deps/bgfx.cmake/cmake/3rdparty/dear-imgui)
-
-target_compile_definitions(ds_sequencer PRIVATE "-D_CRT_SECURE_NO_WARNINGS" "-D__STDC_FORMAT_MACROS" "-DENTRY_CONFIG_IMPLEMENT_MAIN=1" )
-
-set_target_properties(ds_sequencer PROPERTIES LINK_FLAGS "/ENTRY:\"mainCRTStartup\"" )
