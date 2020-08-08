@@ -26,4 +26,6 @@ target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)
 
 target_compile_definitions(app PRIVATE "-D_CRT_SECURE_NO_WARNINGS" "-D__STDC_FORMAT_MACROS" "-DENTRY_CONFIG_IMPLEMENT_MAIN=1" )
 
-set_target_properties(app PROPERTIES LINK_FLAGS "/ENTRY:\"mainCRTStartup\"" )
+if(WIN32)
+    set_target_properties(app PROPERTIES LINK_FLAGS "/ENTRY:\"mainCRTStartup\"" )
+endif()
