@@ -1,0 +1,9 @@
+[submodule "bgfx.cmake"]
+	path = deps/bgfx.cmake
+	url = git@github.com:dashandslash/bgfx.cmake.git
+[submodule "imgui"]
+	path = deps/imgui
+	url = git@github.com:dashandslash/imgui.git
+[submodule "ImGuizmo"]
+	path = deps/ImGuizmo
+	url = git@github.com:CedricGuillemet/ImGuizmo.git
