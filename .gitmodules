@@ -7,3 +7,6 @@
 [submodule "ImGuizmo"]
 	path = deps/ImGuizmo
 	url = git@github.com:CedricGuillemet/ImGuizmo.git
+[submodule "deps/entt"]
+	path = deps/entt
+	url = git@github.com:skypjack/entt.git
