@@ -22,11 +22,14 @@ file(GLOB IMGUIZMO_SOURCE_FILES
   ${CMAKE_CURRENT_SOURCE_DIR}/deps/ImGuizmo/ImSequencer.cpp
 )
 
-file(COPY ${IMGUIZMO_SOURCE_FILES} DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/deps/bgfx.cmake/bgfx/3rdparty/dear-imgui/widgets/)
+file(COPY ${IMGUIZMO_SOURCE_FILES} DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/deps/bgfx.cmake/bgfx/3rdparty/dear-imgui)
 
 include_directories("deps/bgfx.cmake/bgfx/3rdparty")
 
+add_subdirectory(base)
 add_subdirectory(deps/bgfx.cmake)
+add_subdirectory(deps/entt)
+add_subdirectory(deps/glm)
 add_subdirectory(ds_sequencer)
 add_subdirectory(renderer)
 add_subdirectory(ui)

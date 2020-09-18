@@ -12,7 +12,9 @@ target_sources(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME}
                       PUBLIC
+                      base
                       bgfx
+                      EnTT
                       example-common
                       )
 

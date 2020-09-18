@@ -15,8 +15,11 @@ add_dependencies(app example-common ui)
 
 target_link_libraries(${PROJECT_NAME}
                       PUBLIC
+                      base
                       bgfx
+                      EnTT
                       example-common
+                      glm
                       renderer
                       ui
                       )
